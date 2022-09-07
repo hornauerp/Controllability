@@ -10,7 +10,7 @@ def smooth_fr(input_path, output_path):
     times_path = os.path.join(input_path, 'spike_times.npy')
     ids_path = os.path.join(input_path, 'spike_templates.npy')
     times = np.load(times_path)
-    times /= 20000
+    times = times/20000
     ids = np.load(ids_path)
     # get neotrains
     neo_t: SpikeTrainList = SpikeTrainList.from_spike_time_array(times, ids, np.unique(ids), units='s',
